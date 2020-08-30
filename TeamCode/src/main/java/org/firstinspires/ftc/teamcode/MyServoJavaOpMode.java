@@ -35,12 +35,15 @@ public class MyServoJavaOpMode extends LinearOpMode {
             if(gamepad1.y) {
                 // move to 0 degrees.
                 servoTest.setPosition(0);
-            } else if (gamepad1.x || gamepad1.b) {
-                // move to 90 degrees.
+            } else if ( gamepad1.b) {
+                // move to 45 degrees.
                 servoTest.setPosition(0.5);
             } else if (gamepad1.a) {
-                // move to 180 degrees.
+                // move to 90 degrees.
                 servoTest.setPosition(1);
+            }else if (gamepad1.x) {
+                // move to 180 degrees
+                servoTest.setPosition(.7);
             }
             telemetry.addData("Servo Position", servoTest.getPosition());
             telemetry.addData("Status", "Running");

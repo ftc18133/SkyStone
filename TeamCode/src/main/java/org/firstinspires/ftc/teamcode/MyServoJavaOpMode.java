@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @TeleOp
-public abstract class MySecondJavaOpMode extends LinearOpMode {
+public class MyServoJavaOpMode extends LinearOpMode {
     //    private Gyroscope imu;
     //    private DcMotor motorTest;
     //    private DigitalChannel digitalTouch;

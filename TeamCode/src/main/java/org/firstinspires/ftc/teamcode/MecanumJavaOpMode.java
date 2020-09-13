@@ -28,7 +28,6 @@ public class MecanumJavaOpMode extends LinearOpMode {
         motorR1 = hardwareMap.get(DcMotor.class, "motorR1");
         motorR2 = hardwareMap.get(DcMotor.class, "motorR2");
 
-
         telemetry.addData("Status", "Initialized");
         telemetry.update();
         // Wait for the game to start (driver presses PLAY)
@@ -38,23 +37,43 @@ public class MecanumJavaOpMode extends LinearOpMode {
         double tgtPower = 0;
 
         while (opModeIsActive()) {
-            tgtPower = -this.gamepad1.left_stick_y;
+            tgtPower = -this.gamepad1.right_stick_y;
 
-            // set power (all 4 motors)
-            motorL1.setPower(tgtPower);
+            // go forward (all forward)
+            if (this.gamepad1.dpad_up) {
+                motorL1.setPower(tgtPower);
+                // TODO: motorL2
+                // TODO: motorR1
+                // TODO: motorR2
+            } else if (this.gamepad1.dpad_down) {
+                // go back
+                // TODO: motorL1
+                // TODO: motorL2
+                // TODO: motorR1
+                // TODO: motorR2
+            } else if (this.gamepad1.dpad_left) {
+                // go left
+                // TODO: motorL1
+                // TODO: motorL2
+                // TODO: motorR1
+                // TODO: motorR2
+            } else if (this.gamepad1.dpad_right) {
+                // go right
+                // TODO: motorL1
+                // TODO: motorL2
+                // TODO: motorR1
+                // TODO: motorR2
 
-            telemetry.addData("Target Power", tgtPower);
-            telemetry.addData("Motor Power", motorL1.getPower());
-
-            // go forward
-
-            // go back
-
-            // go left
-
-            // go right
+            }
 
             telemetry.addData("Status", "Running");
+
+            telemetry.addData("Target Power", tgtPower);
+            telemetry.addData("Motor Power L1", motorL1.getPower());
+            // TODO: addData Motor Power L2
+            // TODO: addData Motor Power R1
+            // TODO: addData Motor Power R2
+
             telemetry.update();
         }
     }

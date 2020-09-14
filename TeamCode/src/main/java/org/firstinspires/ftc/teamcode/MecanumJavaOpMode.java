@@ -20,7 +20,6 @@ public class MecanumJavaOpMode extends LinearOpMode {
     private DcMotor motorR1;
     private DcMotor motorR2;
 
-
     @Override
     public void runOpMode() {
         motorL1 = hardwareMap.get(DcMotor.class, "motorL1");
@@ -42,37 +41,33 @@ public class MecanumJavaOpMode extends LinearOpMode {
             // go forward (all forward)
             if (this.gamepad1.dpad_up) {
                 motorL1.setPower(tgtPower);
-                // TODO: motorL2
-                // TODO: motorR1
-                // TODO: motorR2
+                motorL2.setPower(tgtPower);
+                motorR1.setPower(tgtPower);
+                motorR2.setPower(tgtPower);
             } else if (this.gamepad1.dpad_down) {
-                // go back
-                // TODO: motorL1
-                // TODO: motorL2
-                // TODO: motorR1
-                // TODO: motorR2
+                motorL1.setPower(-tgtPower);
+                motorL2.setPower(-tgtPower);
+                motorR1.setPower(-tgtPower);
+                motorR2.setPower(-tgtPower);
             } else if (this.gamepad1.dpad_left) {
-                // go left
-                // TODO: motorL1
-                // TODO: motorL2
-                // TODO: motorR1
-                // TODO: motorR2
+                motorL1.setPower(-tgtPower);
+                motorL2.setPower(tgtPower);
+                motorR1.setPower(tgtPower);
+                motorR2.setPower(-tgtPower);
             } else if (this.gamepad1.dpad_right) {
-                // go right
-                // TODO: motorL1
-                // TODO: motorL2
-                // TODO: motorR1
-                // TODO: motorR2
-
+                motorL1.setPower(tgtPower);
+                motorL2.setPower(-tgtPower);
+                motorR1.setPower(-tgtPower);
+                motorR2.setPower(tgtPower);
             }
 
             telemetry.addData("Status", "Running");
 
             telemetry.addData("Target Power", tgtPower);
             telemetry.addData("Motor Power L1", motorL1.getPower());
-            // TODO: addData Motor Power L2
-            // TODO: addData Motor Power R1
-            // TODO: addData Motor Power R2
+            telemetry.addData("Motor Power L2", motorL2.getPower());
+            telemetry.addData("Motor Power R1", motorR1.getPower());
+            telemetry.addData("Motor Power R2", motorR2.getPower());
 
             telemetry.update();
         }
